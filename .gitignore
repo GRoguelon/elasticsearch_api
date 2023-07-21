@@ -28,3 +28,6 @@ elasticsearch_api-*.tar
 # Ignore Dialyzer files
 /priv/plts/*.plt
 /priv/plts/*.plt.hash
+
+# Ignore ASDF files
+.tool-versions
