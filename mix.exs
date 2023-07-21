@@ -8,6 +8,10 @@ defmodule ElasticsearchApi.MixProject do
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      package: package(),
+      name: "Elasticsearch API",
+      description: "Elixir library to query Elasticsearch",
+      source_url: "https://github.com/GRoguelon/elasticsearch_api",
       dialyzer: dialyzer(),
       docs: docs()
     ]
@@ -31,6 +35,17 @@ defmodule ElasticsearchApi.MixProject do
       formatters: ["html"],
       main: "readme",
       extras: ["README.md"]
+    ]
+  end
+
+  defp package do
+    [
+      # These are the default files included in the package
+      files: ~w[lib mix.exs README* LICENSE*],
+      licenses: ["MIT"],
+      links: %{
+        "Github" => "https://github.com/GRoguelon/elasticsearch_api"
+      }
     ]
   end
 
