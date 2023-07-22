@@ -76,7 +76,7 @@ defmodule ElasticsearchApi.Client do
       nil ->
         Logger.warning("No cluster specified, using default cluster")
 
-        @default_cluster
+        Map.get(@clusters, :default, @default_cluster)
 
       cluster when is_map(cluster) and is_map_key(cluster, :endpoint) ->
         cluster
@@ -87,7 +87,7 @@ defmodule ElasticsearchApi.Client do
         else
           Logger.warning("Invalid cluster: #{inspect(cluster_key)}, using default cluster")
 
-          @default_cluster
+          Map.get(@clusters, :default, @default_cluster)
         end
     end
   end
