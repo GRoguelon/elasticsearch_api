@@ -5,7 +5,7 @@ defmodule ElasticsearchApi.MixProject do
     [
       app: :elasticsearch_api,
       version: "0.1.0",
-      elixir: "~> 1.15",
+      elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: package(),
@@ -52,7 +52,8 @@ defmodule ElasticsearchApi.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:any_http, "~> 0.1", path: "/Users/geoffrey/Developer/groguelon/any_http"},
+      {:any_http, "~> 0.1"},
+      {:any_json, "~> 0.2"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
       {:ex_doc, "~> 0.30", only: :dev, runtime: false}

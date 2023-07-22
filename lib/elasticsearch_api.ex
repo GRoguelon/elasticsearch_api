@@ -1,18 +1,24 @@
 defmodule ElasticsearchApi do
   @moduledoc """
-  Documentation for `ElasticsearchApi`.
+  Provides some shortcuts to the most common functions.
   """
 
-  @doc """
-  Hello world.
+  ## Typespecs
 
-  ## Examples
+  @type opts :: ElasticsearchApi.Client.opts()
 
-      iex> ElasticsearchApi.hello()
-      :world
+  @type response :: ElasticsearchApi.Client.response()
 
-  """
-  def hello do
-    :world
-  end
+  @type query :: map()
+
+  ## Public functions
+
+  @spec search(query(), opts()) :: {:ok, response()}
+  defdelegate search(query, opts \\ []), to: ElasticsearchApi.Search.Core
+
+  @spec extract_body!({:ok, response()}) :: any()
+  defdelegate extract_body!(result), to: ElasticsearchApi.Utils
+
+  @spec extract_hits!({:ok, response()} | {:error, any()}) :: [map()]
+  defdelegate extract_hits!(result), to: ElasticsearchApi.Utils
 end
